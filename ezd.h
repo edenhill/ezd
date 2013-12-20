@@ -68,7 +68,7 @@ int ezd_csv2array (char ***arrp, const char *val);
 /**
  * Read configuration file 'path'.
  * The configuration file format is assumed to be 'key=value' based
- * but if '=' character is found the entire line is provided in 'val' to
+ * but if no '=' character is found the entire line is provided in 'val' to
  * 'conf_set_cb'.
  *
  * 'conf_set_cb' is an application provided callback to apply the
@@ -97,7 +97,7 @@ int ezd_str_tof (const char *val);
  * Parent process will linger for timeout_sec seconds waiting for
  * child process to call ezd_daemon_started().
  * Finalize from child process with ezd_daemon_started().
- * Parent process will exit() if child is properly started.
+ * Parent process will exit(0) if child is properly started.
  */
 int ezd_daemon (int timeout_sec, char *errstr, size_t errstr_size);
 
